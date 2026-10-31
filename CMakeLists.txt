@@ -11,7 +11,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-find_package(ROOT 6 REQUIRED COMPONENTS Core RIO Tree)
+find_package(ROOT 6 REQUIRED COMPONENTS Core RIO Hist Tree TreePlayer)
 
 set(PYTHIA8_DIR "" CACHE PATH "Pythia 8 installation prefix (optional)")
 if(NOT PYTHIA8_DIR)
@@ -33,10 +33,15 @@ set_target_properties(Pythia8::Pythia8 PROPERTIES
 message(STATUS "Pythia 8: ${PYTHIA8_LIBRARY}")
 
 add_library(ppanalysis STATIC
-    src/Event.cpp)
+    src/Event.cpp
+    src/Categories.cpp
+    src/Analyzer.cpp)
 target_include_directories(ppanalysis PUBLIC ${CMAKE_SOURCE_DIR}/include)
-target_link_libraries(ppanalysis PUBLIC ROOT::Core ROOT::RIO ROOT::Tree)
+target_link_libraries(ppanalysis PUBLIC ROOT::Core ROOT::RIO ROOT::Hist ROOT::Tree ROOT::TreePlayer)
 target_compile_options(ppanalysis PUBLIC -Wall -Wextra)
 
 add_executable(pp_generate src/generate.cpp)
 target_link_libraries(pp_generate PRIVATE ppanalysis Pythia8::Pythia8)
+
+add_executable(pp_analyze src/analyze.cpp)
+target_link_libraries(pp_analyze PRIVATE ppanalysis)
