@@ -45,3 +45,32 @@ target_link_libraries(pp_generate PRIVATE ppanalysis Pythia8::Pythia8)
 
 add_executable(pp_analyze src/analyze.cpp)
 target_link_libraries(pp_analyze PRIVATE ppanalysis)
+
+set(PP_NEVENTS 100000 CACHE STRING "Number of events for run_generate")
+set(PP_SEED 12345 CACHE STRING "Random seed for run_generate")
+
+add_custom_target(run_generate
+    COMMAND ${CMAKE_COMMAND} -E make_directory output
+    COMMAND pp_generate --config config/pythia_13p6TeV.cmnd --nevents ${PP_NEVENTS}
+                        --seed ${PP_SEED} --output output/events.root
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    DEPENDS pp_generate
+    USES_TERMINAL)
+
+add_custom_target(run_analyze
+    COMMAND pp_analyze --input output/events.root --output output/analysis.root
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    DEPENDS pp_analyze
+    USES_TERMINAL)
+
+find_program(ROOT_EXECUTABLE root HINTS ${ROOT_BINDIR})
+add_custom_target(plots
+    COMMAND ${ROOT_EXECUTABLE} -l -b -q macros/draw_plots.C
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)
+
+add_custom_target(pipeline
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target run_generate
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target run_analyze
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target plots
+    USES_TERMINAL)
