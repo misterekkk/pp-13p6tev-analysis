@@ -1,0 +1,8 @@
+Beams:idA = 2212
+Beams:idB = 2212
+Beams:eCM = 13600
+SoftQCD:inelastic = on
+Tune:pp = 14
+ParticleDecays:limitTau0 = on
+ParticleDecays:tau0Max = 10
+Next:numberCount = 10000
