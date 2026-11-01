@@ -233,6 +233,21 @@ softwareupdate --list
 sudo softwareupdate -i "<Command Line Tools ...>"
 ```
 
+## Źródła
+
+- C. Bierlich et al., *A comprehensive guide to the physics and usage of PYTHIA 8.3*,
+  [arXiv:2203.11601](https://arxiv.org/abs/2203.11601)
+- P. Skands, S. Carrazza, J. Rojo, *Tuning PYTHIA 8.1: the Monash 2013 Tune*,
+  Eur. Phys. J. C 74 (2014) 3024, [arXiv:1404.5630](https://arxiv.org/abs/1404.5630)
+- ALICE, *Inclusive and multiplicity-dependent pseudorapidity densities of charged particles in pp
+  collisions at √s = 13.6 TeV*, [arXiv:2602.10658](https://arxiv.org/abs/2602.10658)
+- ALICE, *Pseudorapidity and transverse-momentum distributions of charged particles in
+  proton–proton collisions at √s = 13 TeV*, Phys. Lett. B 753 (2016) 319,
+  [arXiv:1509.08734](https://arxiv.org/abs/1509.08734)
+- ALICE, *Production of light-flavor hadrons in pp collisions at √s = 7 and 13 TeV*,
+  Eur. Phys. J. C 81 (2021) 256, [arXiv:2005.11120](https://arxiv.org/abs/2005.11120),
+  [HEPData ins1797443](https://www.hepdata.net/record/ins1797443)
+
 ## Licencja
 
 [MIT](LICENSE)
