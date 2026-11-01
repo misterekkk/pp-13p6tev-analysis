@@ -1,0 +1,15 @@
+#: table_doi: 10.17182/hepdata.100303.v1/t26
+#: name: Table 26
+#: description: Average transverse momentum of $\pi^{+}+\pi^{-}$ as a function of the center-of-mass energy.
+#: data_file: Table_26.yaml
+#: keyword observables: PT
+#: keyword cmenergies: 900.0-13000.0
+#: keyword reactions: P P --> ($\pi^{+}+\pi^{-}$) + $X$
+#: RE,P P --> ($\pi^{+}+\pi^{-}$) + X
+#: YRAP(CM),$-0.5 < y < 0.5$
+SQRT(S) [TEV],$\langle p_{\rm T} \rangle$ [GeV],stat +,stat -,sys +,sys -
+13,0.491498,9.62635e-05,-9.62635e-05,0.00992578,-0.00992578
+7,0.466,0,0,0.01,-0.01
+2.76,0.438,0,0,0.005,-0.005
+0.9,0.4038,0,0,0.02,-0.02
+

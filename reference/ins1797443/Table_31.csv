@@ -1,0 +1,15 @@
+#: table_doi: 10.17182/hepdata.100303.v1/t31
+#: name: Table 31
+#: description: Average transverse momentum of $p + \overline{p}$ as a function of the center-of-mass energy.
+#: data_file: Table_31.yaml
+#: keyword observables: PT
+#: keyword cmenergies: 900.0-13000.0
+#: keyword reactions: P P --> ($p + \overline{p}$) + $X$
+#: RE,P P --> ($p + \overline{p}$) + X
+#: YRAP(CM),$-0.5 < y < 0.5$
+SQRT(S) [TEV],$\langle p_{\rm T} \rangle$ [GeV],stat +,stat -,sys +,sys -
+13,0.965924,0.000774999,-0.000774999,0.014359,-0.014359
+7,0.9,0,0,0.029,-0.029
+2.76,0.829,0,0,0.017,-0.017
+0.9,0.7605,0,0,0.0602,-0.0602
+

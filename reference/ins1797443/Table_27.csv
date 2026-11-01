@@ -1,0 +1,15 @@
+#: table_doi: 10.17182/hepdata.100303.v1/t27
+#: name: Table 27
+#: description: Average transverse momentum of $K^{+} + K^{-}$ as a function of the center-of-mass energy.
+#: data_file: Table_27.yaml
+#: keyword observables: PT
+#: keyword cmenergies: 900.0-13000.0
+#: keyword reactions: P P --> ($K^{+} + K^{-}$) + $X$
+#: RE,P P --> ($K^{+} + K^{-}$) + X
+#: YRAP(CM),$-0.5 < y < 0.5$
+SQRT(S) [TEV],$\langle p_{\rm T} \rangle$ [GeV],stat +,stat -,sys +,sys -
+13,0.809889,0.000692787,-0.000692787,0.00987428,-0.00987428
+7,0.773,0,0,0.016,-0.016
+2.76,0.704,0,0,0.009,-0.009
+0.9,0.6487,0,0,0.0502,-0.0502
+

@@ -69,6 +69,20 @@ add_custom_target(plots
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     USES_TERMINAL)
 
+add_custom_target(run_13TeV
+    COMMAND ${CMAKE_COMMAND} -E make_directory output
+    COMMAND pp_generate --config config/pythia_13TeV.cmnd --nevents ${PP_NEVENTS}
+                        --seed ${PP_SEED} --output output/events_13TeV.root
+    COMMAND pp_analyze --input output/events_13TeV.root --output output/analysis_13TeV.root
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    DEPENDS pp_generate pp_analyze
+    USES_TERMINAL)
+
+add_custom_target(comparison
+    COMMAND ${ROOT_EXECUTABLE} -l -b -q macros/draw_comparison.C
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    USES_TERMINAL)
+
 add_custom_target(pipeline
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target run_generate
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target run_analyze
