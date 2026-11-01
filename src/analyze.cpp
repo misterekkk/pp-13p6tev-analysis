@@ -62,6 +62,13 @@ namespace {
         }
         std::cout << "(means include entries outside the histogram ranges; "
                      "% = share of entries in under/overflow bins)\n";
+
+        const auto& cmp = analyzer.comparison();
+        const TH1D& hMid = cmp.midEtaMultiplicity();
+        std::cout << "\n<dNch/deta> in |eta|<0.5, INEL>0: " << std::setprecision(3) << hMid.GetMean()
+                  << " +- " << hMid.GetMeanError() << " (stat)\n"
+                  << "<pT> in |y|<0.5 [GeV]: pi " << cmp.ptPions().GetMean()
+                  << ", K " << cmp.ptKaons().GetMean() << ", p " << cmp.ptProtons().GetMean() << "\n";
     }
 
 }  // namespace
