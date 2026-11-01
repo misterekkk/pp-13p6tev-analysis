@@ -5,6 +5,7 @@
 #include "TTree.h"
 
 #include <cmath>
+#include <filesystem>
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -63,7 +64,14 @@ int main(int argc, char** argv) {
     if (!pythia.init()) return 1;
     pythia.settings.listChanged();
 
+    const auto outDir = std::filesystem::path(opt.output).parent_path();
+    std::error_code ec;
+    if (!outDir.empty()) std::filesystem::create_directories(outDir, ec);
     TFile file(opt.output.c_str(), "RECREATE");
+    if (file.IsZombie()) {
+        std::cerr << "Cannot create " << opt.output << "\n";
+        return 1;
+    }
     TTree tree(ppanalysis::branch::kTreeName, "pp");
     ppanalysis::EventBranches branches;
     branches.attachTo(tree);

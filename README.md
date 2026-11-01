@@ -76,7 +76,6 @@ cmake --build build --target pipeline
 ### 1. Generacja zdarzeń
 
 ```bash
-mkdir -p output
 ./build/pp_generate --config config/pythia_13p6TeV.cmnd --nevents 100000 --seed 12345 \
                     --output output/events.root
 ```
@@ -232,11 +231,6 @@ cmake -S . -B build -DPYTHIA8_DIR=/ścieżka/do/pythia8
 ```bash
 softwareupdate --list
 sudo softwareupdate -i "<Command Line Tools ...>"
-```
-
-**`pp_generate` nie może utworzyć pliku wyjściowego**
-```bash
-mkdir -p output
 ```
 
 ## Licencja
